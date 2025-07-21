@@ -1,0 +1,126 @@
+.hero {
+  background-image: linear-gradient(
+    to top,
+    #1e3c72 0%,
+    #1e3c72 1%,
+    #2a5298 100%
+  );
+  color: #fff;
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  grid-template-areas:
+    "nav" /* Esto ocupa el máximo contenido */
+    "content" /* esto se pone abajo en lo sobrante */;
+  min-height: 100vh;
+  gap: 5rem;
+}
+
+/* BARRA DE NAVEGACION */
+.nav {
+  grid-area: nav;
+}
+
+.nav-content {
+  display: grid;
+  justify-content: space-between;
+  grid-auto-flow: column; /* crea como una especie de 3 columnas */
+  align-items: center;
+  height: 9rem;
+}
+
+.nav-logo {
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.nav-list {
+  display: grid;
+  grid-auto-flow: column; /* Para que se ponga uno al lado del otro */
+  gap: 2rem;
+}
+
+.nav-list a {
+  color: white;
+}
+
+/* No tiene sentido que se muestre en deskptop en cel si */
+.nav-menu {
+  display: none;
+}
+
+.nav-icon {
+  width: 3rem;
+}
+
+/* MAIN HERO */
+.hero-main {
+  grid-area: "content";
+  padding-bottom: 18rem;
+}
+
+.hero-content {
+  display: grid;
+  gap: 1rem;
+  /* grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); */
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+}
+
+.hero-text h1 {
+  letter-spacing: 2px;
+}
+
+.hero-text p {
+  margin: 1.5rem;
+  font-size: 2.4rem;
+  font-weight: 300;
+}
+
+.hero-cta {
+  color: #fff;
+  padding: 1.5rem 6rem;
+  border: 1px solid;
+  border-radius: 6px;
+  display: inline-block;
+  font-weight: 500;
+  transition: background-color color 0.3s ease-in-out;
+}
+
+.hero-cta:hover {
+  background-color: #fff;
+  color: #1e3c72;
+}
+
+.hero-img img {
+  width: 100%;
+}
+
+.hero-waves {
+  grid-area: "content";
+  align-self: end;
+}
+
+@media (max-width: 800px) {
+.nav-list{
+  display: none;
+}
+
+.nav-menu{
+  display: block;
+}
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, max-content);
+    text-align: center;
+  }
+
+  .hero-img {
+    grid-row: 1/2;
+  }
+
+  .hero-img img {
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+}
